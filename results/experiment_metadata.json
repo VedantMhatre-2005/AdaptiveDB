@@ -1,0 +1,35 @@
+{
+  "experiment_timestamp": "2026-10-27 10:18:09",
+  "controller_version": "v2.0-fault-aware",
+  "random_seed": 42,
+  "repetition_count": 3,
+  "total_measured_runs": 204,
+  "operations_per_run": 50,
+  "concurrency": 4,
+  "modes_tested": [
+    "STRONG",
+    "QUORUM",
+    "EVENTUAL",
+    "ADAPTIVE"
+  ],
+  "fault_matrix_scenarios": [
+    "ExpA_Baseline",
+    "ExpB_Delay_25ms",
+    "ExpB_Delay_50ms",
+    "ExpB_Delay_100ms",
+    "ExpC_Nodes_3of4",
+    "ExpC_Nodes_2of4",
+    "ExpC_Nodes_1of4",
+    "ExpD_RepLag_50ms",
+    "ExpD_RepLag_100ms",
+    "ExpD_RepLag_250ms",
+    "ExpE_Fail_5pct",
+    "ExpE_Fail_10pct",
+    "ExpE_Fail_25pct",
+    "ExpF_Combined_50ms_3nodes",
+    "ExpF_Combined_100ms_2nodes",
+    "ExpF_Combined_50ms_10pctFail",
+    "ExpF_Combined_100msLag_3nodes"
+  ],
+  "mock_storage_mode": true
+}

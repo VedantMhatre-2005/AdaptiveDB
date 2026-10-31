@@ -1,0 +1,55 @@
+services:
+
+  db-node-1:
+    image: postgres:17
+    container_name: dc-db-node-1
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: distributed_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - node1_data:/var/lib/postgresql/data
+
+  db-node-2:
+    image: postgres:17
+    container_name: dc-db-node-2
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: distributed_db
+    ports:
+      - "5434:5432"
+    volumes:
+      - node2_data:/var/lib/postgresql/data
+
+  db-node-3:
+    image: postgres:17
+    container_name: dc-db-node-3
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: distributed_db
+    ports:
+      - "5435:5432"
+    volumes:
+      - node3_data:/var/lib/postgresql/data
+
+  db-node-4:
+    image: postgres:17
+    container_name: dc-db-node-4
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: distributed_db
+    ports:
+      - "5436:5432"
+    volumes:
+      - node4_data:/var/lib/postgresql/data
+
+volumes:
+  node1_data:
+  node2_data:
+  node3_data:
+  node4_data:

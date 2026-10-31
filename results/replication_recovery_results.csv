@@ -1,0 +1,2 @@
+experiment,recovered_node,keys_written,keys_deleted,reconciled_keys,tombstone_preserved,key2_converged,duration_ms,status
+Node4_AntiEntropy_Recovery,node4,2,1,50,True,True,3.07,PASSED

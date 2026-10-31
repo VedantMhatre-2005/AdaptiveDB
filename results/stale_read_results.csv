@@ -1,0 +1,2 @@
+experiment,consistency_mode,simulated_rep_delay_ms,committed_version,read_version,is_stale_detected,converged_after_sync,status
+Controlled_ReplicationLag_StaleRead,EVENTUAL,150.0,8742,8741,True,True,PASSED
