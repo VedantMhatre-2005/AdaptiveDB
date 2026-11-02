@@ -12,7 +12,6 @@ import { OverviewPage } from './pages/OverviewPage';
 import { LiveQueryPage } from './pages/LiveQueryPage';
 import { SimulatorPage } from './pages/SimulatorPage';
 import { ResultsPage } from './pages/ResultsPage';
-import { HistoryPage } from './pages/HistoryPage';
 import { ArchitecturePage } from './pages/ArchitecturePage';
 
 export const App: React.FC = () => {
@@ -123,11 +122,6 @@ export const App: React.FC = () => {
     }
   };
 
-  const handleSelectHistoricalExperiment = (experiment: ExperimentRecord) => {
-    setCurrentExperiment(experiment);
-    setActiveTab('results');
-  };
-
   return (
     <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-stone-900 font-sans selection:bg-brand-primary selection:text-white">
       {/* Light Header Navbar */}
@@ -176,14 +170,6 @@ export const App: React.FC = () => {
         {activeTab === 'results' && (
           <ResultsPage
             currentExperiment={currentExperiment}
-            onNavigateToSimulator={() => setActiveTab('simulator')}
-            onNavigateToHistory={() => setActiveTab('history')}
-          />
-        )}
-
-        {activeTab === 'history' && (
-          <HistoryPage
-            onSelectExperiment={handleSelectHistoricalExperiment}
             onNavigateToSimulator={() => setActiveTab('simulator')}
           />
         )}

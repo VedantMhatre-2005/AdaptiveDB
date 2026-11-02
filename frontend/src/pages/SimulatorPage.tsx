@@ -143,9 +143,9 @@ export const SimulatorPage: React.FC<SimulatorPageProps> = ({
 
             <button
               onClick={onCancelExperiment}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-white border border-rose-200 text-rose-700 hover:bg-rose-50 transition-colors shadow-xs"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-rose-600 text-white hover:bg-rose-700 transition-colors shadow-xs cursor-pointer"
             >
-              <XCircle className="w-4 h-4 text-rose-500" />
+              <XCircle className="w-4 h-4 text-white" />
               Cancel Experiment
             </button>
           </div>
@@ -475,21 +475,26 @@ export const SimulatorPage: React.FC<SimulatorPageProps> = ({
                   Simulated Node Partitions / Crashes
                 </label>
                 <div className="grid grid-cols-2 gap-2">
-                  {['db_1', 'db_2', 'db_3', 'db_4'].map((nodeId) => {
+                  {['node1', 'node2', 'node3', 'node4'].map((nodeId) => {
                     const isDown = config.unavailable_nodes.includes(nodeId);
                     return (
                       <button
                         key={nodeId}
                         type="button"
                         onClick={() => handleToggleNode(nodeId)}
-                        className={`p-2.5 rounded-xl border text-xs font-mono font-medium flex items-center justify-between transition-all ${
+                        className={`p-3 rounded-xl border-2 text-xs font-mono font-bold flex items-center justify-between transition-all shadow-xs cursor-pointer ${
                           isDown
-                            ? 'bg-rose-50 border-rose-300 text-rose-700 font-bold'
-                            : 'bg-stone-50 border-stone-200 text-stone-700 hover:border-stone-300'
+                            ? 'bg-rose-50 border-rose-400 text-rose-700 hover:bg-rose-100'
+                            : 'bg-emerald-50 border-emerald-300 text-emerald-800 hover:bg-emerald-100 hover:border-emerald-400'
                         }`}
                       >
-                        <span>{nodeId}</span>
-                        <span className="text-[10px] uppercase">{isDown ? 'Partitioned' : 'Healthy'}</span>
+                        <div className="flex items-center gap-2">
+                          <span className={`w-2.5 h-2.5 rounded-full ${isDown ? 'bg-rose-500' : 'bg-emerald-500 animate-pulse'}`} />
+                          <span className={isDown ? 'line-through' : ''}>{nodeId}</span>
+                        </div>
+                        <span className="text-[10px] font-sans font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-white/80 border border-stone-200/50">
+                          {isDown ? 'Partitioned' : 'Healthy'}
+                        </span>
                       </button>
                     );
                   })}
@@ -518,9 +523,9 @@ export const SimulatorPage: React.FC<SimulatorPageProps> = ({
             <button
               type="button"
               onClick={handleReset}
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-stone-200 text-xs font-medium text-stone-600 bg-white hover:bg-stone-50 transition-colors"
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-stone-300 text-xs font-semibold text-stone-700 bg-white hover:bg-stone-100 hover:border-stone-400 transition-colors shadow-xs cursor-pointer"
             >
-              <RotateCcw className="w-3.5 h-3.5" />
+              <RotateCcw className="w-3.5 h-3.5 text-stone-600" />
               Reset Defaults
             </button>
           </div>
@@ -529,13 +534,13 @@ export const SimulatorPage: React.FC<SimulatorPageProps> = ({
             <button
               type="submit"
               disabled={!!runningExperimentId}
-              className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-white shadow-md transition-all ${
+              className={`w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl font-bold text-white shadow-lg transition-all ${
                 runningExperimentId
-                  ? 'bg-stone-400 cursor-not-allowed'
-                  : 'bg-brand-primary hover:bg-blue-700 shadow-blue-500/20 hover:scale-[1.02] active:scale-[0.98]'
+                  ? 'bg-stone-400 cursor-not-allowed opacity-90'
+                  : 'bg-blue-600 hover:bg-blue-700 active:bg-blue-800 shadow-blue-500/30 hover:scale-[1.02] active:scale-[0.98] cursor-pointer'
               }`}
             >
-              <Play className="w-4 h-4 fill-white" />
+              <Play className="w-4 h-4 fill-white text-white" />
               {runningExperimentId ? 'Execution in Progress...' : 'Execute Experiment'}
             </button>
           </div>

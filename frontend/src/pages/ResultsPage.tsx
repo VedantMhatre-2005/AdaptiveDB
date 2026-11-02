@@ -22,19 +22,16 @@ import {
   Zap,
   ShieldAlert,
   ArrowUpDown,
-  History,
 } from 'lucide-react';
 
 interface ResultsPageProps {
   currentExperiment: ExperimentRecord | null;
   onNavigateToSimulator: () => void;
-  onNavigateToHistory: () => void;
 }
 
 export const ResultsPage: React.FC<ResultsPageProps> = ({
   currentExperiment,
   onNavigateToSimulator,
-  onNavigateToHistory,
 }) => {
   const [activeTab, setActiveTab] = useState<'charts' | 'table' | 'decisions'>('charts');
 
@@ -43,20 +40,11 @@ export const ResultsPage: React.FC<ResultsPageProps> = ({
       <div className="py-12">
         <EmptyState
           title="No Experiment Results Loaded"
-          description="Execute a new experiment from the Simulator or select a historical run to inspect authentic metrics and performance charts."
+          description="Execute a new experiment from the Simulator to inspect authentic metrics and performance charts."
           actionText="Open Simulator"
           onAction={onNavigateToSimulator}
           icon={<BarChart3 className="w-6 h-6 text-brand-primary" />}
         />
-        <div className="mt-4 text-center">
-          <button
-            onClick={onNavigateToHistory}
-            className="text-xs text-brand-primary hover:underline font-medium inline-flex items-center gap-1"
-          >
-            <History className="w-3.5 h-3.5" />
-            Or browse previously executed runs
-          </button>
-        </div>
       </div>
     );
   }

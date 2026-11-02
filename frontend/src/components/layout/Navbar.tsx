@@ -1,6 +1,6 @@
 import React from 'react';
 import type { BackendHealth } from '../../types';
-import { Activity, Server, Database, ShieldCheck, Cpu, Send } from 'lucide-react';
+import { Activity, Database, Sliders, Cpu, Send } from 'lucide-react';
 
 interface NavbarProps {
   activeTab: string;
@@ -22,8 +22,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'query', label: 'Live Query & Replicas', icon: Send },
     { id: 'simulator', label: 'Experiment Runner', icon: Cpu },
     { id: 'results', label: 'Analysis & Charts', icon: Database },
-    { id: 'history', label: 'Baseline & History', icon: Server },
-    { id: 'architecture', label: 'Distributed Design', icon: ShieldCheck },
+    { id: 'architecture', label: 'Consistency Switching', icon: Sliders },
   ];
 
   const getHealthBadge = () => {

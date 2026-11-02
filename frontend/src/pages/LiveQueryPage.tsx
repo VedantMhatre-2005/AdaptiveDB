@@ -258,13 +258,19 @@ export const LiveQueryPage: React.FC = () => {
                         key={n}
                         type="button"
                         onClick={() => toggleNodePartition(n)}
-                        className={`py-1.5 px-2 rounded-xl text-xs font-mono font-semibold border transition-all ${
+                        className={`py-2 px-2 rounded-xl text-xs font-mono font-bold border-2 transition-all flex flex-col items-center justify-center gap-0.5 shadow-xs ${
                           isDown
-                            ? 'bg-rose-100 border-rose-300 text-rose-800 line-through'
-                            : 'bg-stone-50 border-stone-200 text-stone-700 hover:bg-stone-100'
+                            ? 'bg-rose-50 border-rose-400 text-rose-700 hover:bg-rose-100'
+                            : 'bg-emerald-50 border-emerald-300 text-emerald-800 hover:bg-emerald-100 hover:border-emerald-400'
                         }`}
                       >
-                        {n}
+                        <div className="flex items-center gap-1.5">
+                          <span className={`w-2 h-2 rounded-full ${isDown ? 'bg-rose-500' : 'bg-emerald-500 animate-pulse'}`} />
+                          <span className={isDown ? 'line-through' : ''}>{n}</span>
+                        </div>
+                        <span className="text-[10px] font-sans font-semibold uppercase tracking-wider opacity-85">
+                          {isDown ? 'Down' : 'Active'}
+                        </span>
                       </button>
                     );
                   })}
@@ -337,13 +343,13 @@ export const LiveQueryPage: React.FC = () => {
             <button
               type="submit"
               disabled={isExecuting}
-              className={`w-full py-3.5 px-4 rounded-xl text-sm font-bold text-white shadow-md transition-all flex items-center justify-center gap-2 ${
+              className={`w-full py-3.5 px-4 rounded-xl text-sm font-bold text-white shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer ${
                 isExecuting
-                  ? 'bg-blue-400 cursor-not-allowed'
-                  : 'bg-brand-primary hover:bg-blue-700 active:scale-[0.99] shadow-blue-500/20'
+                  ? 'bg-blue-400 cursor-not-allowed opacity-90'
+                  : 'bg-blue-600 hover:bg-blue-700 active:bg-blue-800 active:scale-[0.99] shadow-blue-500/30'
               }`}
             >
-              <Send className={`w-4 h-4 ${isExecuting ? 'animate-spin' : ''}`} />
+              <Send className={`w-4 h-4 text-white ${isExecuting ? 'animate-spin' : ''}`} />
               <span>{isExecuting ? 'Broadcasting to Replicas...' : `Dispatch ${operation} Query`}</span>
             </button>
           </form>

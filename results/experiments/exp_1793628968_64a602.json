@@ -1,0 +1,41 @@
+{
+  "id": "exp_1793628968_64a602",
+  "name": "Elevated Network Latency (50ms)",
+  "created_at": "2026-11-02 19:46:08",
+  "start_time": "2026-11-02 19:46:08",
+  "end_time": "2026-11-02 19:49:46",
+  "status": "cancelled",
+  "config": {
+    "name": "Elevated Network Latency (50ms)",
+    "consistency_mode": "COMPARE_ALL",
+    "num_operations": 290,
+    "concurrency": 8,
+    "read_ratio": 0.6,
+    "warmup_ops": 10,
+    "repetitions": 2,
+    "random_seed": 42,
+    "simulated_delay_ms": 50.0,
+    "delay_jitter_ms": 10.0,
+    "failure_probability": 0.0,
+    "replication_delay_ms": 0.0,
+    "unavailable_nodes": [],
+    "adaptive_cooldown": 25,
+    "adaptive_window_size": 30
+  },
+  "progress": {
+    "completed_runs": 4,
+    "total_runs": 8,
+    "percent": 50,
+    "current_step": "Executing EVENTUAL (Repetition 1/2)"
+  },
+  "results": [],
+  "summary": {},
+  "adaptive_decisions": [],
+  "error": "Execution cancelled by user.",
+  "provenance": {
+    "backend_version": "AdaptiveDB v2.0",
+    "controller_version": "v2.0-fault-aware",
+    "random_seed": 42,
+    "mock_storage": false
+  }
+}

@@ -39,7 +39,7 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <button
               onClick={onStartExperiment}
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-white bg-brand-primary hover:bg-blue-700 shadow-md shadow-blue-500/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-500/25 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             >
               <Play className="w-4 h-4 fill-white" />
               Launch Experiment Simulator

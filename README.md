@@ -235,8 +235,7 @@ DC_MicroProject/
 │   │   │   ├── LiveQueryPage.tsx    # Interactive PUT/GET/DELETE query explorer
 │   │   │   ├── SimulatorPage.tsx    # Benchmark simulator & parameter controls
 │   │   │   ├── ResultsPage.tsx      # Recharts visualizations (latencies, stale reads)
-│   │   │   ├── HistoryPage.tsx      # Historical experiment browser & export tools
-│   │   │   └── ArchitecturePage.tsx # Technical diagrams & quorum mathematics guide
+│   │   │   └── ArchitecturePage.tsx # Dynamic consistency switching rules & policy matrix
 │   │   ├── services/api.ts          # REST client communicating with FastAPI
 │   │   └── types/index.ts           # TypeScript interfaces & types
 │   └── public/                      # Static assets & icons
@@ -657,10 +656,8 @@ The React frontend (`frontend/`) provides an interactive research UI:
    - Latency percentiles (P50, P95, P99) rendered with Recharts.
    - Throughput comparisons and stale read counts.
    - Distribution chart showing Adaptive Controller decisions across consistency modes.
-5. **History Page**:
-   - Historical experiment browser with filtering, search, and one-click JSON/CSV export.
-6. **Architecture Page**:
-   - Interactive component diagram, mathematical breakdown of quorum equations ($R + W > N$), and explanation of the PACELC trade-off curve.
+5. **Consistency Switching Page**:
+   - Comprehensive overview and decision matrix detailing how the Adaptive Controller dynamically switches between STRONG, QUORUM, and EVENTUAL modes based on live cluster health, latency thresholds, packet drop rates, and workload read/write ratios.
 
 ---
 

@@ -8,6 +8,8 @@ export default {
     extend: {
       colors: {
         brand: {
+          primary: "#2563EB",
+          secondary: "#1D4ED8",
           coral: "#FF6B6B",
           blue: "#2563EB",
           sky: "#0284C7",
